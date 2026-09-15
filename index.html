@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daylane — your household's week, on the wall</title>
+<meta name="description" content="Daylane shows a household's shared week on a screen in the home. It reads your calendar; it never writes to it.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+
+<h1>Daylane</h1>
+<p class="lede">Your household's week, on a screen in your home.</p>
+
+<p>Daylane is a calendar display for a shared home. One screen on a kitchen or
+hallway wall shows the week everyone in the household is actually having —
+drawn from the calendars they already keep, on their own accounts, without
+anyone having to copy anything onto a whiteboard.</p>
+
+<p>It reads calendars. It never writes to them.</p>
+
+<h2>What it actually is today</h2>
+
+<p>Daylane is two pieces: a server, and a phone app that talks to it. The
+server runs; this site describes what it does. <strong>The phone app is not yet
+published in any app store</strong>, so there is nothing here to download and
+nothing to buy. When there is, this page will say so.</p>
+
+<h2>How it works</h2>
+
+<ol class="steps">
+	<li><strong>Make an account.</strong> Sign in with Google, with Apple, or
+	with an email address and password. Every one of those paths verifies your
+	email address before the account can be used.</li>
+
+	<li><strong>Connect a calendar.</strong> Daylane supports Google Calendar
+	and Microsoft (Outlook.com and Microsoft 365). Connecting sends you to
+	Google's or Microsoft's own consent screen, where you grant
+	<strong>read-only</strong> access. Daylane holds no password of yours for
+	either service — only the access token that consent produces, which you can
+	withdraw at any time from your Google or Microsoft account.</li>
+
+	<li><strong>Pair the display.</strong> The screen shows a short code. You
+	type that code into the app, and the screen is linked to your household.
+	Only the household owner can pair or unpair a display, and unpairing takes
+	effect on the screen within about twenty milliseconds while it is online.</li>
+
+	<li><strong>Invite the household.</strong> The owner invites people by email
+	address. Each person connects their own calendar; their events join the
+	household's week. Nobody — the owner included — can see or manage anyone
+	else's calendar connection.</li>
+</ol>
+
+<h2>What it reads, and what it leaves alone</h2>
+
+<p>Daylane currently reads the <strong>primary calendar</strong> of each
+connected account, and nothing else. Secondary calendars — a subscribed holiday
+feed, a birthdays calendar, a shared "Family" calendar kept alongside the main
+one — are not read today. We would rather say that plainly than let a wall
+display show a week that looks complete and is not.</p>
+
+<p>From the events it does read, Daylane keeps only the fields a screen draws:
+the title, when it starts and ends, whether it is all-day, the location, the
+description, whether the time is busy or free, any reminder, and attendees'
+display names. The provider's full response — which carries attendees'
+<em>email addresses</em>, meeting join links and attachment details belonging to
+people who have never heard of Daylane — is discarded rather than stored.</p>
+
+<p>The <a href="/privacy/">privacy policy</a> sets all of this out properly,
+including what is kept, for how long, and what happens when you disconnect.</p>
+
+<h2>What it does not do</h2>
+
+<ul>
+	<li>It does not write to, change, or delete anything in your calendar.</li>
+	<li>It does not sell your data, or share it for advertising.</li>
+	<li>It shows no advertisements.</li>
+	<li>This website sets no cookies, loads no fonts or scripts from anywhere
+	else, and runs no analytics.</li>
+</ul>
+
+<footer>
+	<p><a href="/privacy/">Privacy policy</a></p>
+	<!-- REVIEW BEFORE PUBLICATION: this address must exist as an explicit
+	     forwarder at the registrar first. lane.systems has no mailboxes, only
+	     Namecheap email forwarding, and Namecheap rejects mail for any address
+	     that is not a configured forwarder — so an address printed here that
+	     nobody created bounces silently. See deploy/README.md. -->
+	<p>Questions about your data: <a href="mailto:privacy@lane.systems">privacy@lane.systems</a></p>
+</footer>
+
+</main>
+</body>
+</html>

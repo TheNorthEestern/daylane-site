@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daylane — Privacy Policy</title>
+<meta name="description" content="What Daylane collects from your calendar accounts, what it keeps, how long it keeps it, and who else is involved.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+
+<h1>Privacy Policy</h1>
+<p class="meta">Daylane · Last updated 15 September 2026</p>
+
+<div class="note">
+	<p><strong>Draft, for the owner to review before publication.</strong></p>
+	<p>Every factual statement here was taken from the Daylane source code and
+	its design record, not from a template. It is not legal advice, and it has
+	not been reviewed by a lawyer. The operator of Daylane should read it end to
+	end and confirm each claim before this page is published or submitted to
+	Google.</p>
+	<p>Passages marked <strong>[CONFIRM]</strong> could not be settled from the
+	code and need an answer from the operator.</p>
+</div>
+
+<p>Daylane shows a household's shared week on a screen in their home. To do
+that, it reads calendars that the people in that household connect themselves.
+This page explains exactly what it reads, what it keeps, how long it keeps it,
+and who else is involved.</p>
+
+<h2>Who is responsible</h2>
+
+<p>[CONFIRM] The operator of Daylane — the legal or natural person responsible
+for the data described here — and their postal address and country of
+establishment. The source code does not record this, and a privacy policy has
+to name it.</p>
+
+<p>Questions about anything on this page:
+<a href="mailto:privacy@lane.systems">privacy@lane.systems</a>. [CONFIRM] that
+this address exists as a working mail forwarder before publishing; the
+<code>lane.systems</code> domain has no mailboxes, and mail to an address that
+has not been set up as a forwarder is rejected without a bounce anyone sees.</p>
+
+<h2>What Daylane holds about you</h2>
+
+<dl>
+	<dt>Your account</dt>
+	<dd>Your email address, which is also how you sign in. Optionally a first
+	name, if you gave one or accepted a suggested one. If you signed in with
+	Google or Apple, the identifier that provider uses for you. If you use a
+	password, only a salted hash of it — never the password itself.</dd>
+
+	<dt>Your calendar connections</dt>
+	<dd>For each calendar account you connect: which provider it is, the email
+	address of that account, the access and refresh tokens the provider issued,
+	the scopes granted, when it was last synchronised, and — for Google — the
+	given name on the account. Tokens are encrypted before they reach the
+	database (see <a href="#protection">How it is protected</a>).</dd>
+
+	<dt>Your events</dt>
+	<dd>Only the fields a screen draws, listed in full below.</dd>
+
+	<dt>Your household</dt>
+	<dd>Its name, who owns it, who its members are, and any invitations that are
+	still pending.</dd>
+
+	<dt>Your display</dt>
+	<dd>The name you gave the screen, an identifier the screen reports about
+	itself, when it was paired, and when it last checked in. The token that
+	authenticates the screen is stored only as a SHA-256 hash; the token itself
+	is shown once, at pairing, and cannot be recovered afterwards.</dd>
+</dl>
+
+<h3>The event fields Daylane keeps</h3>
+
+<p>Title, start time, end time, whether it is an all-day event, location,
+description, whether the time is marked busy, free, tentative or out-of-office,
+what kind of entry it is, its recurrence rule, a label and reference for any
+conference attached to it, the <em>display names</em> of attendees, how many
+attendees there are, and the reminder time.</p>
+
+<p>That is the complete list. Everything else the provider sends is discarded —
+see <a href="#other-people">Other people's information</a>.</p>
+
+<h2 id="google">Google data, and why each permission is asked for</h2>
+
+<p>Signing in with Google and connecting a Google Calendar are two separate
+things in Daylane, with two separate consent screens. <strong>Signing in with
+Google grants no access to your calendar at all, and the tokens from sign-in are
+not stored.</strong> Only the calendar connection produces stored tokens.</p>
+
+<p>When you connect a Google Calendar, Daylane asks for exactly four scopes:</p>
+
+<dl>
+	<dt><code>https://www.googleapis.com/auth/calendar.readonly</code></dt>
+	<dd>To read the events Daylane draws on the household's display. It is the
+	read-only scope: it does not permit Daylane to create, modify or delete
+	anything in your calendar, and Daylane never attempts to. Today Daylane
+	reads only the primary calendar of the connected account.</dd>
+
+	<dt><code>openid</code> and <code>email</code></dt>
+	<dd>To learn <em>which</em> Google account you just connected. Daylane
+	identifies a connection by that address, so that connecting a personal and a
+	work account gives you two distinct connections rather than one overwriting
+	the other, and so the app and the display can show you which account a set
+	of events comes from. It is not used to contact you.</dd>
+
+	<dt><code>profile</code></dt>
+	<dd>For one thing only: the given name on the Google account, offered as a
+	suggestion for what the app should call you if you have never said. You can
+	accept it, edit it, or decline it, and you are only ever asked once. The
+	suggestion is stored on the connection; it is not copied onto your account
+	unless you accept it. Nothing else from the profile is requested, read, or
+	kept.</dd>
+</dl>
+
+<h3>Limited Use</h3>
+
+<p>Daylane's use and transfer of information received from Google APIs to any
+other app will adhere to the
+<a href="https://developers.google.com/terms/api-services-user-data-policy">Google
+API Services User Data Policy</a>, including the Limited Use requirements.</p>
+
+<p>Concretely, and in the terms that policy uses:</p>
+
+<ul>
+	<li>Google user data is used only to provide the user-facing feature you
+	connected the calendar for — showing your week on your household's display,
+	and in the Daylane app.</li>
+	<li>It is not transferred to anyone else, except the infrastructure
+	providers named below that are needed to run the service.</li>
+	<li>It is never used or transferred for advertising of any kind, and never
+	sold to anyone, including advertising platforms, data brokers or information
+	resellers.</li>
+	<li>It is not used to train any generalised artificial-intelligence or
+	machine-learning model.</li>
+	<li>No human reads it. The only exceptions are the ones the policy allows: if
+	you specifically ask for help and agree to it, if it is necessary for
+	security or to comply with the law, or where the data has been aggregated and
+	anonymised for internal operations.</li>
+</ul>
+
+<h2>Microsoft data</h2>
+
+<p>Connecting a Microsoft account asks for
+<code>https://graph.microsoft.com/Calendars.Read</code> — read-only calendar
+access — together with <code>openid</code> and <code>email</code> to learn which
+account was connected, and <code>offline_access</code>, which is what allows
+Daylane to keep the display up to date without asking you to sign in again every
+hour. As with Google, Daylane reads the account's default calendar and writes
+nothing.</p>
+
+<h2 id="other-people">Other people's information</h2>
+
+<p>An ordinary calendar is full of information about people who have never heard
+of Daylane: the email addresses of everyone invited to a meeting, who organised
+it, meeting join links, free-text descriptions, attachments. In one ordinary
+calendar measured while building this, twenty-three events carried thirty-one
+distinct email addresses.</p>
+
+<p><strong>Daylane discards all of it.</strong> The provider's response is used
+to fill in the event fields listed above and is then thrown away, not stored.
+No attendee email address and no meeting join link is written to the database at
+all — that is asserted by an automated test, not merely intended. Attendees
+appear on a display as names, never as addresses.</p>
+
+<p>This is deliberate and load-bearing: those people are not Daylane users and
+have consented to nothing, so the safest thing to do with their data is not to
+keep it.</p>
+
+<h2 id="protection">How it is protected</h2>
+
+<ul>
+	<li><strong>OAuth tokens are encrypted by the application before they reach
+	the database</strong>, using Fernet authenticated encryption with a key held
+	in the server's environment and never in the database. Anyone reading the
+	database, a backup, or a replica sees ciphertext, not credentials. Multiple
+	keys can be configured at once — the newest encrypts, all of them decrypt —
+	so a key can be rotated without downtime.</li>
+	<li>The same encryption protects the short-lived secret used during the
+	calendar authorisation handshake.</li>
+	<li>Display tokens are stored only as a SHA-256 hash.</li>
+	<li>All traffic between the apps, the displays and the server is over
+	HTTPS.</li>
+	<li>Tokens never appear in any API response, in any log line, or in the
+	administrative interface. The fields are not registered there at all, because
+	a field that does not exist in a form cannot be leaked by one.</li>
+	<li>One person's calendar connection is visible only to that person. A
+	household owner cannot see, inspect, synchronise or revoke another member's
+	connection; what the owner can see is which accounts feed the household and
+	how many events each contributes.</li>
+</ul>
+
+<h2>Who else is involved</h2>
+
+<dl>
+	<dt>Google and Microsoft</dt>
+	<dd>The calendar providers themselves. Daylane reads from them under the
+	permission you granted, which you can withdraw at any time from your Google
+	account or Microsoft account.</dd>
+
+	<dt>DigitalOcean</dt>
+	<dd>Hosts the server and the database. [CONFIRM] the data-centre region, so
+	this page can state where the data physically lives.</dd>
+
+	<dt>Resend, which delivers through Amazon SES</dt>
+	<dd>Sends the only email Daylane sends: email-verification codes, password
+	resets, and household invitations. These carry your email address, and an
+	invitation carries the household's name and the first name of the person
+	inviting you — deliberately no link and no email address of the inviter,
+	because an invitation mistyped by one character reaches a stranger.</dd>
+
+	<dt>GitHub</dt>
+	<dd>Serves this website. Like any web host, GitHub receives the IP address of
+	anyone who visits this page. Daylane adds no cookies, analytics or
+	third-party scripts of its own to it.</dd>
+</dl>
+
+<p>Daylane does not sell your data, and does not share it with anyone else.
+There is no advertising in Daylane and no third-party tracking in it.</p>
+
+<h2>How long it is kept</h2>
+
+<ul>
+	<li><strong>Past events are deleted about six months after they end</strong>
+	— 183 days, measured from the event's end time rather than its start, so that
+	something long-running that has not finished is never removed from a display
+	while it is still current. Future events are never pruned, however far ahead
+	they are.</li>
+	<li>Your account, household, connections and display records are kept while
+	the account exists.</li>
+	<li>Abandoned calendar-authorisation attempts and unredeemed display pairing
+	codes are cleared out automatically shortly after they expire.</li>
+</ul>
+
+<h2>Removing your data</h2>
+
+<dl>
+	<dt>Disconnect a calendar</dt>
+	<dd>Daylane first tells the provider to stop sending change notifications,
+	then deletes the connection along with the stored tokens and
+	<strong>every event that connection contributed, in every household</strong>.
+	You can also revoke Daylane's access directly in your Google or Microsoft
+	account settings, which stops it reading anything further.</dd>
+
+	<dt>Leave a household, or be removed from one</dt>
+	<dd>Your events stop being shown on that household's display, and the copies
+	held for that household are deleted on the next synchronisation — within
+	about fifteen minutes.</dd>
+
+	<dt>Delete your account</dt>
+	<dd>
+		<div class="note">
+			<p><strong>[CONFIRM — feature in development]</strong></p>
+			<p>Account deletion is being built as this is written. The intent is
+			that deleting your account removes your account record, your calendar
+			connections and their stored tokens, all events those connections
+			contributed, the household you own together with its displays and
+			invitations, and your membership of any other household. The operator
+			must confirm this description matches what actually ships before this
+			page is published, and correct it if it does not.</p>
+		</div>
+	</dd>
+</dl>
+
+<h2>The display in your home</h2>
+
+<p>A paired screen shows the household's week to whoever is in the room. That is
+the purpose of the product, and it is worth being explicit about: anything on a
+connected calendar may be visible to anyone who can see that screen, including
+guests in the home. Only the household owner can pair a display or unpair one,
+and unpairing takes effect within about twenty milliseconds on a screen that is
+online.</p>
+
+<h2>Changes to this policy</h2>
+
+<p>If what Daylane does with your data changes, this page changes with it, and
+the date at the top is updated.</p>
+
+<footer>
+	<p><a href="/">Daylane home</a></p>
+	<p>Questions: <a href="mailto:privacy@lane.systems">privacy@lane.systems</a></p>
+</footer>
+
+</main>
+</body>
+</html>
