@@ -11,17 +11,14 @@
 <main>
 
 <h1>Privacy Policy</h1>
-<p class="meta">Daylane · Last updated 15 September 2026</p>
+<p class="meta">Daylane · Last updated September 15, 2026</p>
 
 <div class="note">
-	<p><strong>Draft, for the owner to review before publication.</strong></p>
-	<p>Every factual statement here was taken from the Daylane source code and
-	its design record, not from a template. It is not legal advice, and it has
-	not been reviewed by a lawyer. The operator of Daylane should read it end to
-	end and confirm each claim before this page is published or submitted to
-	Google.</p>
-	<p>Passages marked <strong>[CONFIRM]</strong> could not be settled from the
-	code and need an answer from the operator.</p>
+	<p><strong>One item is still outstanding: the company responsible for Daylane
+	is not yet named below.</strong></p>
+	<p>Everything else on this page was taken from the Daylane source code and its
+	design record rather than from a template. It is not legal advice, and it has
+	not been reviewed by a lawyer.</p>
 </div>
 
 <p>Daylane shows a household's shared week on a screen in their home. To do
@@ -31,16 +28,11 @@ and who else is involved.</p>
 
 <h2>Who is responsible</h2>
 
-<p>[CONFIRM] The operator of Daylane — the legal or natural person responsible
-for the data described here — and their postal address and country of
-establishment. The source code does not record this, and a privacy policy has
-to name it.</p>
+<p><strong>[To be completed: the registered company responsible for Daylane,
+its registered address, and its country of establishment.]</strong></p>
 
 <p>Questions about anything on this page:
-<a href="mailto:privacy@lane.systems">privacy@lane.systems</a>. [CONFIRM] that
-this address exists as a working mail forwarder before publishing; the
-<code>lane.systems</code> domain has no mailboxes, and mail to an address that
-has not been set up as a forwarder is rejected without a bounce anyone sees.</p>
+<a href="mailto:privacy@lane.systems">privacy@lane.systems</a>.</p>
 
 <h2>What Daylane holds about you</h2>
 
@@ -54,7 +46,7 @@ has not been set up as a forwarder is rejected without a bounce anyone sees.</p>
 	<dt>Your calendar connections</dt>
 	<dd>For each calendar account you connect: which provider it is, the email
 	address of that account, the access and refresh tokens the provider issued,
-	the scopes granted, when it was last synchronised, and — for Google — the
+	the scopes granted, when it was last synchronized, and — for Google — the
 	given name on the account. Tokens are encrypted before they reach the
 	database (see <a href="#protection">How it is protected</a>).</dd>
 
@@ -75,7 +67,7 @@ has not been set up as a forwarder is rejected without a bounce anyone sees.</p>
 <h3>The event fields Daylane keeps</h3>
 
 <p>Title, start time, end time, whether it is an all-day event, location,
-description, whether the time is marked busy, free, tentative or out-of-office,
+description, whether the time is marked busy, free, tentative, or out-of-office,
 what kind of entry it is, its recurrence rule, a label and reference for any
 conference attached to it, the <em>display names</em> of attendees, how many
 attendees there are, and the reminder time.</p>
@@ -95,8 +87,8 @@ not stored.</strong> Only the calendar connection produces stored tokens.</p>
 <dl>
 	<dt><code>https://www.googleapis.com/auth/calendar.readonly</code></dt>
 	<dd>To read the events Daylane draws on the household's display. It is the
-	read-only scope: it does not permit Daylane to create, modify or delete
-	anything in your calendar, and Daylane never attempts to. Today Daylane
+	read-only scope: it does not permit Daylane to create, modify, or delete
+	anything in your calendar, and Daylane never attempts to. Daylane
 	reads only the primary calendar of the connected account.</dd>
 
 	<dt><code>openid</code> and <code>email</code></dt>
@@ -131,14 +123,14 @@ API Services User Data Policy</a>, including the Limited Use requirements.</p>
 	<li>It is not transferred to anyone else, except the infrastructure
 	providers named below that are needed to run the service.</li>
 	<li>It is never used or transferred for advertising of any kind, and never
-	sold to anyone, including advertising platforms, data brokers or information
+	sold to anyone, including advertising platforms, data brokers, or information
 	resellers.</li>
-	<li>It is not used to train any generalised artificial-intelligence or
+	<li>It is not used to train any generalized artificial-intelligence or
 	machine-learning model.</li>
 	<li>No human reads it. The only exceptions are the ones the policy allows: if
 	you specifically ask for help and agree to it, if it is necessary for
 	security or to comply with the law, or where the data has been aggregated and
-	anonymised for internal operations.</li>
+	anonymized for internal operations.</li>
 </ul>
 
 <h2>Microsoft data</h2>
@@ -154,7 +146,7 @@ nothing.</p>
 <h2 id="other-people">Other people's information</h2>
 
 <p>An ordinary calendar is full of information about people who have never heard
-of Daylane: the email addresses of everyone invited to a meeting, who organised
+of Daylane: the email addresses of everyone invited to a meeting, who organized
 it, meeting join links, free-text descriptions, attachments. In one ordinary
 calendar measured while building this, twenty-three events carried thirty-one
 distinct email addresses.</p>
@@ -179,7 +171,7 @@ keep it.</p>
 	keys can be configured at once — the newest encrypts, all of them decrypt —
 	so a key can be rotated without downtime.</li>
 	<li>The same encryption protects the short-lived secret used during the
-	calendar authorisation handshake.</li>
+	calendar authorization handshake.</li>
 	<li>Display tokens are stored only as a SHA-256 hash.</li>
 	<li>All traffic between the apps, the displays and the server is over
 	HTTPS.</li>
@@ -187,7 +179,7 @@ keep it.</p>
 	administrative interface. The fields are not registered there at all, because
 	a field that does not exist in a form cannot be leaked by one.</li>
 	<li>One person's calendar connection is visible only to that person. A
-	household owner cannot see, inspect, synchronise or revoke another member's
+	household owner cannot see, inspect, synchronize, or revoke another member's
 	connection; what the owner can see is which accounts feed the household and
 	how many events each contributes.</li>
 </ul>
@@ -201,8 +193,8 @@ keep it.</p>
 	account or Microsoft account.</dd>
 
 	<dt>DigitalOcean</dt>
-	<dd>Hosts the server and the database. [CONFIRM] the data-centre region, so
-	this page can state where the data physically lives.</dd>
+	<dd>Hosts the server and the database, in DigitalOcean's New York region, in
+	the United States.</dd>
 
 	<dt>Resend, which delivers through Amazon SES</dt>
 	<dd>Sends the only email Daylane sends: email-verification codes, password
@@ -213,7 +205,7 @@ keep it.</p>
 
 	<dt>GitHub</dt>
 	<dd>Serves this website. Like any web host, GitHub receives the IP address of
-	anyone who visits this page. Daylane adds no cookies, analytics or
+	anyone who visits this page. Daylane adds no cookies, analytics, or
 	third-party scripts of its own to it.</dd>
 </dl>
 
@@ -228,9 +220,9 @@ There is no advertising in Daylane and no third-party tracking in it.</p>
 	something long-running that has not finished is never removed from a display
 	while it is still current. Future events are never pruned, however far ahead
 	they are.</li>
-	<li>Your account, household, connections and display records are kept while
+	<li>Your account, household, connections, and display records are kept while
 	the account exists.</li>
-	<li>Abandoned calendar-authorisation attempts and unredeemed display pairing
+	<li>Abandoned calendar-authorization attempts and unredeemed display pairing
 	codes are cleared out automatically shortly after they expire.</li>
 </ul>
 
@@ -246,22 +238,27 @@ There is no advertising in Daylane and no third-party tracking in it.</p>
 
 	<dt>Leave a household, or be removed from one</dt>
 	<dd>Your events stop being shown on that household's display, and the copies
-	held for that household are deleted on the next synchronisation — within
+	held for that household are deleted on the next synchronization — within
 	about fifteen minutes.</dd>
 
 	<dt>Delete your account</dt>
-	<dd>
-		<div class="note">
-			<p><strong>[CONFIRM — feature in development]</strong></p>
-			<p>Account deletion is being built as this is written. The intent is
-			that deleting your account removes your account record, your calendar
-			connections and their stored tokens, all events those connections
-			contributed, the household you own together with its displays and
-			invitations, and your membership of any other household. The operator
-			must confirm this description matches what actually ships before this
-			page is published, and correct it if it does not.</p>
-		</div>
-	</dd>
+	<dd>Deleting your account removes your account record, your calendar
+	connections and the tokens stored with them, every event those connections
+	contributed, the household you own together with its displays and its pending
+	invitations, and your membership of any other household. Before anything is
+	deleted, Daylane shows you what will go — including how many people lose
+	access to a household you own, and how many displays go dark — because
+	deleting an owner's account deletes the household with it.</dd>
+
+	<dt>The grants behind a deleted account</dt>
+	<dd>Deleting your account also hands your calendar grants back. A Google grant
+	is revoked with Google, so Daylane stops appearing in your Google third-party
+	access list. Microsoft publishes no way for an application to hand a delegated
+	personal grant back, so Daylane tells you to remove it yourself in your
+	Microsoft account rather than claiming it did. Apple sign-in stores no token
+	here that could be revoked, so you remove Daylane under Settings → Apple
+	Account → Sign in with Apple. You are told which of these actually
+	happened.</dd>
 </dl>
 
 <h2>The display in your home</h2>
