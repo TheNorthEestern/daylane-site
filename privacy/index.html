@@ -11,7 +11,7 @@
 <main>
 
 <h1>Privacy Policy</h1>
-<p class="meta">Daylane · Last updated September 15, 2026</p>
+<p class="meta">Daylane · Last updated September 16, 2026</p>
 
 <p>Daylane shows a household's shared week on a screen in their home. To do
 that, it reads calendars that the people in that household connect themselves.
@@ -187,6 +187,14 @@ keep it.</p>
 	<dd>Hosts the server and the database, in DigitalOcean's New York region, in
 	the United States.</dd>
 
+	<dt>Cloudflare</dt>
+	<dd>Stores the nightly backups of the database, in Cloudflare's Eastern North
+	America region, in the United States — the same country as the server itself.
+	The backup is encrypted on Daylane's own server before it is uploaded, so what
+	Cloudflare holds is ciphertext, and Cloudflare has no key for it. Storing
+	backups is the only thing Cloudflare does here: it is not the DNS provider for
+	this domain, and it does not serve this website.</dd>
+
 	<dt>Resend, which delivers through Amazon SES</dt>
 	<dd>Sends the only email Daylane sends: email-verification codes, password
 	resets, and household invitations. These carry your email address, and an
@@ -215,6 +223,13 @@ There is no advertising in Daylane and no third-party tracking in it.</p>
 	the account exists.</li>
 	<li>Abandoned calendar-authorization attempts and unredeemed display pairing
 	codes are cleared out automatically shortly after they expire.</li>
+	<li><strong>Backups hold a copy for a while after something is
+	deleted.</strong> The database is backed up nightly, and those backups are
+	kept on a rolling schedule — fourteen daily, eight weekly, and six monthly
+	snapshots. Anything deleted from the live database remains in the snapshots
+	that were already taken until the last of them ages out, which can be up to
+	about six months. Those snapshots are encrypted, and they are read for one
+	purpose: restoring the service if it is lost.</li>
 </ul>
 
 <h2>Removing your data</h2>
@@ -251,6 +266,11 @@ There is no advertising in Daylane and no third-party tracking in it.</p>
 	Account → Sign in with Apple. You are told which of these actually
 	happened.</dd>
 </dl>
+
+<p>Each of those describes the live database — the one Daylane reads, and the
+only one a display is ever drawn from. What is deleted there is gone from the
+service. The encrypted backups are the exception noted above: a copy stays in
+the snapshots already taken until they age out.</p>
 
 <h2>The display in your home</h2>
 
