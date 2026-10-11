@@ -11,7 +11,7 @@
 <main>
 
 <h1>Privacy Policy</h1>
-<p class="meta">Daylane · Last updated September 16, 2026</p>
+<p class="meta">Daylane · Last updated October 11, 2026</p>
 
 <p>Daylane shows a household's shared week on a screen in their home. To do
 that, it reads calendars that the people in that household connect themselves.
@@ -34,6 +34,20 @@ and who else is involved.</p>
 	Google or Apple, the identifier that provider uses for you. If you use a
 	password, only a salted hash of it — never the password itself.</dd>
 
+	<dt>Your picture, if you set one</dt>
+	<dd>You can give yourself a face in the app, and there are two kinds. A
+	<em>preset</em> is a short word — Daylane stores only that word, and the
+	drawing is generated on your phone and on the display, so no picture of you
+	exists anywhere. A <em>photograph</em> is different: the image you choose is
+	re-encoded on the server to a 512 by 512 picture and <strong>stored in
+	Daylane's database</strong>, which means it is also in the encrypted nightly
+	backups described below. Every other household member, and every display
+	paired to a household you are in, can see it — that is what it is for.
+	<strong>All metadata is removed.</strong> A photograph from a phone normally
+	carries the time it was taken and often the exact place; none of that is
+	kept, and the stored image contains nothing but the picture. Setting no
+	picture at all is the default, and then nothing is stored.</dd>
+
 	<dt>Your calendar connections</dt>
 	<dd>For each calendar account you connect: which provider it is, the email
 	address of that account, the access and refresh tokens the provider issued,
@@ -53,6 +67,16 @@ and who else is involved.</p>
 	itself, when it was paired, and when it last checked in. The token that
 	authenticates the screen is stored only as a SHA-256 hash; the token itself
 	is shown once, at pairing, and cannot be recovered afterwards.</dd>
+
+	<dt>Photos on your display</dt>
+	<dd><strong>Daylane never receives your photos.</strong> When the household
+	owner sends an album to the display, the phone sends it straight to the
+	screen over your home network. Daylane's server only introduces the two: it
+	keeps the screen's public key, a key the screen uses to encrypt the photos
+	it stores (so a revoked screen's photos cannot be read), and — for fifteen
+	minutes while a phone is sending — the screen's address on your home network
+	and the phone's temporary public key. Revoking the screen deletes all of
+	it.</dd>
 </dl>
 
 <h3>The event fields Daylane keeps</h3>
@@ -242,6 +266,12 @@ There is no advertising in Daylane and no third-party tracking in it.</p>
 	You can also revoke Daylane's access directly in your Google or Microsoft
 	account settings, which stops it reading anything further.</dd>
 
+	<dt>Remove your picture</dt>
+	<dd>Choosing a preset, or choosing no picture at all, deletes the stored
+	photograph from the live database immediately — it is not kept in case you
+	change your mind. A copy remains in the encrypted backups already taken
+	until they age out, as it does for everything else.</dd>
+
 	<dt>Leave a household, or be removed from one</dt>
 	<dd>Your events stop being shown on that household's display, and the copies
 	held for that household are deleted on the next synchronization — within
@@ -249,7 +279,8 @@ There is no advertising in Daylane and no third-party tracking in it.</p>
 
 	<dt>Delete your account</dt>
 	<dd>Deleting your account removes your account record, your calendar
-	connections and the tokens stored with them, every event those connections
+	connections and the tokens stored with them, any photograph you set, every
+	event those connections
 	contributed, the household you own together with its displays and its pending
 	invitations, and your membership of any other household. Before anything is
 	deleted, Daylane shows you what will go — including how many people lose
