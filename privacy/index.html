@@ -11,7 +11,7 @@
 <main>
 
 <h1>Privacy Policy</h1>
-<p class="meta">Daylane · Last updated October 12, 2026</p>
+<p class="meta">Daylane · Last updated October 19, 2026</p>
 
 <p>Daylane shows a household's shared week on a screen in their home. To do
 that, it reads calendars that the people in that household connect themselves.
@@ -70,13 +70,36 @@ and who else is involved.</p>
 
 	<dt>Photos on your display</dt>
 	<dd><strong>Daylane never receives your photos.</strong> When the household
-	owner sends an album to the display, the phone sends it straight to the
-	screen over your home network. Daylane's server only introduces the two: it
-	keeps the screen's public key, a key the screen uses to encrypt the photos
-	it stores (so a revoked screen's photos cannot be read), and — for fifteen
-	minutes while a phone is sending — the screen's address on your home network
-	and the phone's temporary public key. Revoking the screen deletes all of
-	it.</dd>
+	owner chooses albums for the display, the phone sends the photos straight to
+	the screen over your home network, together with each album's name and which
+	photos belong to which album, so the screen can show one album, or a
+	different album on different days. All of it is encrypted on the way and
+	stored encrypted on the screen; <strong>none of it passes through or is kept
+	by Daylane's server</strong>, which never learns what your albums are called
+	or what is in them. The server only introduces the two: it keeps the
+	screen's public key, a key the screen uses to encrypt what it stores (so a
+	revoked screen's photos cannot be read), and — for fifteen minutes while a
+	phone is sending — the screen's address on your home network and the phone's
+	temporary public key. If an album the display shows is deleted from the
+	owner's phone, the phone tells the server only that this happened, and for
+	which display, so the household can be notified; it never says which album.
+	Revoking the screen deletes all of it.</dd>
+
+	<dt>Your lists</dt>
+	<dd>The lists your household keeps, such as shopping lists: each list's
+	name, its sections, and for every item its text, an optional note, whether
+	it has been checked off, when, and by whom. Every member of the household,
+	and every display paired to it, can see and change them. Items are deleted
+	as soon as anyone deletes them or clears the checked ones; a list that is
+	archived is kept until the household is deleted.</dd>
+
+	<dt>Notifications on your iPhone</dt>
+	<dd>If you allow notifications: the token Apple issues so your phone can be
+	reached, which notifications you have turned on and when you want them, and
+	a record of each notification sent to you — what kind it was, its text, and
+	when it was sent. Notifications are about your household's chores and lists,
+	and are delivered through Apple's push service, which carries their
+	text.</dd>
 </dl>
 
 <h3>The event fields Daylane keeps</h3>
@@ -300,8 +323,8 @@ There is no advertising in Daylane and no third-party tracking in it.</p>
 	<dd>Deleting your account removes your account record, your calendar
 	connections and the tokens stored with them, any photograph you set, every
 	event those connections
-	contributed, the household you own together with its displays and its pending
-	invitations, and your membership of any other household. Before anything is
+	contributed, the household you own together with its displays, its lists and
+	its pending invitations, and your membership of any other household. Before anything is
 	deleted, Daylane shows you what will go — including how many people lose
 	access to a household you own, and how many displays go dark — because
 	deleting an owner's account deletes the household with it.</dd>
