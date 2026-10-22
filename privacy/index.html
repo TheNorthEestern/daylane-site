@@ -11,7 +11,7 @@
 <main>
 
 <h1>Privacy Policy</h1>
-<p class="meta">Daylane · Last updated October 19, 2026</p>
+<p class="meta">Daylane · Last updated October 21, 2026</p>
 
 <p>Daylane shows a household's shared week on a screen in their home. To do
 that, it reads calendars that the people in that household connect themselves.
@@ -62,6 +62,15 @@ and who else is involved.</p>
 	<dd>Its name, who owns it, who its members are, and any invitations that are
 	still pending.</dd>
 
+	<dt>Where your household is, if the owner sets it</dt>
+	<dd>So the display and the app can show the weather, the household owner may
+	give a place. The phone looks the place up itself; Daylane receives only a
+	label for it, such as a neighborhood's name, a country code, and coordinates,
+	which are <strong>rounded to about a kilometer before they are stored</strong>
+	— enough to say what the weather is, never enough to find a house. No street
+	address reaches Daylane. Every member of the household can see it. Clearing it
+	removes it at once, and it is deleted with the household.</dd>
+
 	<dt>Your display</dt>
 	<dd>The name you gave the screen, an identifier the screen reports about
 	itself, when it was paired, and when it last checked in. The token that
@@ -98,17 +107,52 @@ and who else is involved.</p>
 	reached, which notifications you have turned on and when you want them, and
 	a record of each notification sent to you — what kind it was, its text, and
 	when it was sent. Notifications are about your household's chores and lists,
-	and are delivered through Apple's push service, which carries their
-	text.</dd>
+	and about calendar events that have an alert. An event's alert goes to the
+	people in your household it is marked as being for, or, when it is marked
+	for nobody, to whoever has it on their calendar; it is never sent from or
+	to a display. Notifications are delivered through Apple's push service,
+	which carries their text — for an event alert, that includes the event's
+	title.</dd>
+
+	<dt id="assistants">Connected assistants</dt>
+	<dd><strong>Only if you connect one.</strong> You can let an AI assistant,
+	such as Claude, act for you in Daylane. You start it from the assistant, sign
+	in to Daylane, and approve it on a page that says what it may do; nothing is
+	shared before that. Daylane keeps which assistant you connected, when, and
+	what you allowed, and the tokens it holds are stored only as hashes. Once
+	connected, it can <em>read</em> the households you belong to and the first
+	names of the people in them, your household's chores, its lists, and your
+	habits. If you allowed changes, it can also <em>tick off</em> chores,
+	<em>add to and check off</em> list items, <em>mark</em> habit days, and
+	<em>add events</em> to Daylane's own calendar in your account. <strong>It
+	cannot read your calendars or anything on them</strong>, and it cannot
+	change who is in a household, your displays, or your account. It acts in
+	every household you belong to, not just one. What it reads is sent to the
+	company that runs the assistant — Anthropic, for Claude — and is handled
+	under that company's terms, not this page. You can disconnect it at any time
+	in the Daylane app, under Settings → Connected assistants, and it stops
+	working at once.</dd>
 </dl>
 
 <h3>The event fields Daylane keeps</h3>
 
 <p>Title, start time, end time, whether it is an all-day event, location,
 description, whether the time is marked busy, free, tentative, or out-of-office,
-what kind of entry it is, its recurrence rule, a label and reference for any
+what kind of entry it is, its recurrence rule and, for one occurrence of a
+repeating event, when it was first scheduled, a label and reference for any
 conference attached to it, the <em>display names</em> of attendees, how many
-attendees there are, and the reminder time.</p>
+attendees there are, and the reminder time. For an event in the Daylane
+calendar only — one you added through Daylane — it also keeps the video-call
+join link and any web link attached to the event, with that link's title.</p>
+
+<p>Daylane also keeps two things about an event that no calendar holds:
+<strong>who in your household it is for, and how long it takes to get
+there</strong>. Any member of the household can set them, on any event the
+household can see, from the Daylane app or the household's display, and an
+assistant you connected can set them on an event it adds. They are visible to
+the household's members and shown on its display, and they are never written
+into your Google or Microsoft calendar. Daylane records which member or display
+set them first.</p>
 
 <p>That is the complete list. Everything else the provider sends is discarded —
 see <a href="#other-people">Other people's information</a>.</p>
@@ -137,13 +181,19 @@ and a fifth only if you turn on adding events:</p>
 	Daylane, and add events to that calendar when you ask — from the app, or by
 	asking your household's display. It reaches <strong>only calendars Daylane
 	created</strong>: it cannot see, change or delete anything already in your
-	calendars, and Daylane does not edit or delete events at all. An event it
-	adds carries only what you said: a title, a time or a day, and a place if
-	you gave one. If you also turn on <em>Add my chores</em>, the chore you
-	currently hold appears there too, is marked ✓ when it is done, and is
-	removed if it moves to someone else; those chore events are the only ones
-	Daylane ever changes or removes. You can turn either off at any time in the
-	app, and delete the Daylane calendar from Google Calendar like any other.</dd>
+	calendars. An event it adds carries only what you said: a title, a time or
+	a day, a place if you gave one, and how it repeats if you said so. Where
+	editing is switched on, you can also change or delete an event you added
+	this way — from the app, or from your household's display if you allow
+	that separately — but only inside the Daylane calendar, only when nobody
+	else is invited to it, and never over a change made in Google Calendar since
+	Daylane last read it; a repeating event is deleted whole. Daylane never
+	changes or deletes an event you added unless you ask it to. If you also turn
+	on <em>Add my chores</em>, the chore you currently hold appears there too, is
+	marked ✓ when it is done, and is removed if it moves to someone else; those
+	chore events are the only ones Daylane changes or removes on its own. You
+	can turn any of this off at any time in the app, and delete the Daylane
+	calendar from Google Calendar like any other.</dd>
 
 	<dt><code>openid</code> and <code>email</code></dt>
 	<dd>To learn <em>which</em> Google account you just connected. Daylane
@@ -210,8 +260,9 @@ distinct email addresses.</p>
 
 <p><strong>Daylane discards all of it.</strong> The provider's response is used
 to fill in the event fields listed above and is then thrown away, not stored.
-No attendee email address and no meeting join link is written to the database at
-all — that is asserted by an automated test, not merely intended. Attendees
+No attendee email address is written to the database at all, and no meeting join
+link is either, except on an event in the Daylane calendar that you added
+yourself — both asserted by automated tests, not merely intended. Attendees
 appear on a display as names, never as addresses.</p>
 
 <p>This is deliberate and load-bearing: those people are not Daylane users and
@@ -249,6 +300,14 @@ keep it.</p>
 	permission you granted, which you can withdraw at any time from your Google
 	account or Microsoft account.</dd>
 
+	<dt>Apple, for the weather</dt>
+	<dd>If the owner has set the household's place, Daylane's server asks Apple's
+	weather service (WeatherKit) for the forecast there, sending the rounded
+	coordinates, the country code and the household's timezone. The request comes
+	from Daylane's server, so <strong>Apple never receives your phone's or your
+	display's IP address</strong>, and nothing in it says who you are. Households
+	that round to the same place are answered from one request.</dd>
+
 	<dt>DigitalOcean</dt>
 	<dd>Hosts the server and the database, in DigitalOcean's New York region, in
 	the United States.</dd>
@@ -268,14 +327,21 @@ keep it.</p>
 	inviting you — deliberately no link and no email address of the inviter,
 	because an invitation mistyped by one character reaches a stranger.</dd>
 
+	<dt>The assistant you connect, if you connect one</dt>
+	<dd>Receives what it reads on your behalf, as described under
+	<a href="#assistants">Connected assistants</a>, and handles it under its own
+	terms. Daylane sends nothing to an assistant you have not connected
+	yourself.</dd>
+
 	<dt>GitHub</dt>
 	<dd>Serves this website. Like any web host, GitHub receives the IP address of
 	anyone who visits this page. Daylane adds no cookies, analytics, or
 	third-party scripts of its own to it.</dd>
 </dl>
 
-<p>Daylane does not sell your data, and does not share it with anyone else.
-There is no advertising in Daylane and no third-party tracking in it.</p>
+<p>Daylane does not sell your data, and does not share it with anyone else —
+other than an assistant you connect yourself, with what it reads for you. There
+is no advertising in Daylane and no third-party tracking in it.</p>
 
 <h2>How long it is kept</h2>
 
@@ -285,6 +351,11 @@ There is no advertising in Daylane and no third-party tracking in it.</p>
 	something long-running that has not finished is never removed from a display
 	while it is still current. Future events are never pruned, however far ahead
 	they are.</li>
+	<li>Who an event is for, its travel time and its alerts are deleted a week after the
+	event is no longer in any of the household's calendars, and a setting for one
+	occurrence of a repeating event goes when past events of that age do. A
+	person stops being named on any event the moment they leave the
+	household.</li>
 	<li>Your account, household, connections, and display records are kept while
 	the account exists.</li>
 	<li>Abandoned calendar-authorization attempts and unredeemed display pairing
@@ -308,6 +379,11 @@ There is no advertising in Daylane and no third-party tracking in it.</p>
 	You can also revoke Daylane's access directly in your Google or Microsoft
 	account settings, which stops it reading anything further.</dd>
 
+	<dt>Disconnect an assistant</dt>
+	<dd>In the Daylane app, under Settings → Connected assistants. Its access
+	ends immediately and the tokens Daylane held for it are deleted. What it
+	already read is held by the assistant's provider under its own terms.</dd>
+
 	<dt>Remove your picture</dt>
 	<dd>Choosing a preset, or choosing no picture at all, deletes the stored
 	photograph from the live database immediately — it is not kept in case you
@@ -324,7 +400,8 @@ There is no advertising in Daylane and no third-party tracking in it.</p>
 	connections and the tokens stored with them, any photograph you set, every
 	event those connections
 	contributed, the household you own together with its displays, its lists and
-	its pending invitations, and your membership of any other household. Before anything is
+	its pending invitations, your membership of any other household, and every
+	assistant you connected. Before anything is
 	deleted, Daylane shows you what will go — including how many people lose
 	access to a household you own, and how many displays go dark — because
 	deleting an owner's account deletes the household with it.</dd>
